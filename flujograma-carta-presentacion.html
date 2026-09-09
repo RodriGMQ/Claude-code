@@ -1,0 +1,595 @@
+<title>Carta de Presentación PPP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap">
+<style>
+:root {
+  --paper:#FBFAFC; --ground:#F1EFF6; --ground-2:#EBE8F3; --surface:#FFFFFF; --surface-2:#F6F4FA;
+  --ink:#1A1823; --ink-soft:#57536A; --ink-faint:#807B95;
+  --rule:#DCD8E8; --rule-strong:#4A4560;
+  --stamp:#5A3FC0; --stamp-soft:#EDE8FB;
+  --reject:#AC4229; --reject-soft:#FBEBE5;
+  --wait:#8A6210; --wait-soft:#FAF0DA;
+  --ok:#2C7357;
+  --f-disp:'Archivo','Helvetica Neue',Arial,sans-serif;
+  --f-body:'IBM Plex Sans','Segoe UI',Roboto,sans-serif;
+  --f-mono:'IBM Plex Mono','SFMono-Regular',Consolas,monospace;
+}
+@media (prefers-color-scheme:dark) {
+  :root:not([data-theme="light"]) {
+    --paper:#141319; --ground:#1C1A24; --ground-2:#22202B; --surface:#232130; --surface-2:#1B1A24;
+    --ink:#ECEAF3; --ink-soft:#ABA6BC; --ink-faint:#847F96;
+    --rule:#332F40; --rule-strong:#8C86A3;
+    --stamp:#A78CF7; --stamp-soft:#2A2242;
+    --reject:#E68C70; --reject-soft:#3B241C;
+    --wait:#D7A745; --wait-soft:#352A11;
+    --ok:#65C39A;
+  }
+}
+:root[data-theme="dark"] {
+  --paper:#141319; --ground:#1C1A24; --ground-2:#22202B; --surface:#232130; --surface-2:#1B1A24;
+  --ink:#ECEAF3; --ink-soft:#ABA6BC; --ink-faint:#847F96;
+  --rule:#332F40; --rule-strong:#8C86A3;
+  --stamp:#A78CF7; --stamp-soft:#2A2242;
+  --reject:#E68C70; --reject-soft:#3B241C;
+  --wait:#D7A745; --wait-soft:#352A11;
+  --ok:#65C39A;
+}
+* { box-sizing:border-box; }
+body { background:var(--paper); color:var(--ink); font-family:var(--f-body); font-size:15px; line-height:1.62;
+  -webkit-font-smoothing:antialiased; }
+.wrap { max-width:1120px; margin:0 auto; padding:0 24px 96px; }
+.wide { max-width:1440px; }
+
+/* ---- cabecera ---- */
+header.doc { border-bottom:2px solid var(--ink); padding:56px 0 22px; margin-bottom:34px; }
+.eyebrow { font-family:var(--f-mono); font-size:11px; font-weight:500; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--stamp); margin:0 0 18px; line-height:1.7; }
+h1 { font-family:var(--f-disp); font-weight:700; font-size:clamp(34px,5.4vw,58px); line-height:1.03;
+  letter-spacing:-.022em; margin:0 0 14px; text-wrap:balance; }
+.lead { font-size:17px; color:var(--ink-soft); max-width:62ch; margin:0; }
+
+/* ---- ficha de datos ---- */
+.ficha { display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:0;
+  border-top:1px solid var(--rule); margin:34px 0 0; }
+.ficha div { padding:16px 20px 16px 0; border-right:1px solid var(--rule); }
+.ficha div:last-child { border-right:0; }
+.ficha dt { font-family:var(--f-mono); font-size:10.5px; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--ink-faint); margin:0 0 6px; }
+.ficha dd { margin:0; font-family:var(--f-disp); font-weight:600; font-size:23px; letter-spacing:-.01em;
+  font-variant-numeric:tabular-nums; }
+.ficha dd small { display:block; font-family:var(--f-body); font-weight:400; font-size:12.5px;
+  color:var(--ink-soft); letter-spacing:0; margin-top:3px; }
+
+/* ---- secciones ---- */
+section { margin-top:64px; }
+.sec-h { display:flex; align-items:baseline; gap:14px; border-bottom:1px solid var(--rule);
+  padding-bottom:10px; margin-bottom:26px; }
+.sec-n { font-family:var(--f-mono); font-size:12px; font-weight:600; color:var(--stamp);
+  letter-spacing:.06em; }
+h2 { font-family:var(--f-disp); font-weight:600; font-size:clamp(21px,2.6vw,27px); letter-spacing:-.012em;
+  margin:0; text-wrap:balance; }
+h3 { font-family:var(--f-disp); font-weight:600; font-size:16px; letter-spacing:-.005em; margin:34px 0 12px; }
+p { max-width:68ch; }
+.muted { color:var(--ink-soft); }
+
+/* ---- diagrama ---- */
+.diagrama { border:1px solid var(--rule); border-radius:2px; background:var(--surface-2);
+  overflow-x:auto; padding:0; }
+.diagrama svg { display:block; width:100%; min-width:1180px; height:auto; }
+figure { margin:0; }
+figcaption { font-size:13px; color:var(--ink-soft); margin-top:14px; max-width:78ch; }
+
+/* ---- simbologia ---- */
+.leyenda { display:grid; grid-template-columns:repeat(auto-fit,minmax(215px,1fr)); gap:14px 28px;
+  margin:28px 0 0; padding:22px 0 0; border-top:1px solid var(--rule); }
+.ley { display:flex; gap:11px; align-items:flex-start; font-size:13.5px; }
+.ley b { font-weight:600; }
+.ley span.d { display:block; color:var(--ink-soft); font-size:12.5px; }
+.sym { flex:0 0 auto; width:26px; height:16px; display:inline-block; margin-right:8px;
+  vertical-align:-3px; border:1.4px solid var(--rule-strong); background:var(--surface); }
+.ley .sym { margin-right:0; margin-top:3px; }
+.sym-terminal { border-radius:8px; border-color:var(--stamp); background:var(--stamp-soft); }
+.sym-proceso { border-radius:2px; }
+.sym-manual { clip-path:polygon(0 0,100% 0,88% 100%,12% 100%); }
+.sym-doc { clip-path:polygon(0 0,100% 0,100% 78%,50% 100%,0 82%); }
+.sym-multidoc { clip-path:polygon(0 0,100% 0,100% 78%,50% 100%,0 82%); box-shadow:2px -2px 0 -0.5px var(--surface),3.4px -3.4px 0 -0.5px var(--rule-strong); }
+.sym-decision { clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%); border-color:var(--stamp); background:var(--stamp-soft); }
+.sym-demora { border-radius:0 8px 8px 0; border-color:var(--wait); background:var(--wait-soft); }
+
+/* ---- tablas ---- */
+.tbl-wrap { overflow-x:auto; border:1px solid var(--rule); border-radius:2px; }
+table { width:100%; border-collapse:collapse; font-size:13.5px; min-width:640px; background:var(--surface); }
+thead th { font-family:var(--f-mono); font-size:10.5px; font-weight:600; letter-spacing:.09em;
+  text-transform:uppercase; color:var(--ink-soft); text-align:left; padding:12px 14px;
+  background:var(--surface-2); border-bottom:1px solid var(--rule); white-space:nowrap; }
+tbody td { padding:11px 14px; border-bottom:1px solid var(--rule); vertical-align:top; }
+tbody tr:last-child td { border-bottom:0; }
+tbody tr:hover { background:var(--surface-2); }
+td.num { font-family:var(--f-mono); font-weight:600; color:var(--stamp); width:44px;
+  font-variant-numeric:tabular-nums; }
+td.resp { color:var(--ink-soft); white-space:nowrap; }
+.mono { font-family:var(--f-mono); font-variant-numeric:tabular-nums; white-space:nowrap; }
+td.esp { color:var(--wait); }
+td.val { font-weight:600; }
+tfoot td { padding:12px 14px; border-top:2px solid var(--ink); font-family:var(--f-mono);
+  font-weight:600; font-size:13.5px; background:var(--surface-2); }
+
+/* ---- barras de tiempo ---- */
+.barras { display:grid; gap:2px; margin-top:8px; }
+.barra { display:grid; grid-template-columns:190px 1fr 96px; align-items:center; gap:16px;
+  padding:9px 0; border-bottom:1px solid var(--rule); }
+.barra:last-child { border-bottom:0; }
+.barra .n { font-size:13.5px; }
+.barra .t { height:13px; border-radius:1px; }
+.barra .v { font-family:var(--f-mono); font-size:12.5px; text-align:right;
+  font-variant-numeric:tabular-nums; color:var(--ink-soft); }
+.b-sec { background:var(--stamp); } .b-est { background:var(--rule-strong); }
+.b-coo { background:var(--ok); } .b-dec { background:var(--wait); }
+
+/* ---- calculo ---- */
+.calculo { background:var(--surface); border:1px solid var(--rule); border-left:3px solid var(--stamp);
+  border-radius:2px; padding:22px 24px; font-family:var(--f-mono); font-size:13.5px; line-height:2.05;
+  overflow-x:auto; }
+.calculo b { color:var(--stamp); font-weight:600; }
+.calculo .r { display:block; white-space:nowrap; }
+.calculo .r span { color:var(--ink-faint); }
+
+.nota { border-left:3px solid var(--wait); background:var(--wait-soft); padding:16px 20px;
+  font-size:13.5px; border-radius:0 2px 2px 0; margin-top:24px; }
+.nota strong { font-weight:600; }
+.alerta { border-left-color:var(--reject); background:var(--reject-soft); }
+
+ol.sup { padding-left:0; list-style:none; counter-reset:s; max-width:74ch; }
+ol.sup li { counter-increment:s; position:relative; padding:0 0 0 40px; margin-bottom:15px; font-size:14px; }
+ol.sup li::before { content:counter(s,decimal-leading-zero); position:absolute; left:0; top:1px;
+  font-family:var(--f-mono); font-size:11.5px; font-weight:600; color:var(--stamp);
+  border:1px solid var(--rule); border-radius:2px; padding:1px 5px; }
+
+.chips { display:flex; flex-wrap:wrap; gap:8px; margin-top:18px; }
+.chip { font-family:var(--f-mono); font-size:11.5px; padding:5px 10px; border:1px solid var(--rule);
+  border-radius:2px; color:var(--ink-soft); background:var(--surface); }
+footer { margin-top:72px; padding-top:20px; border-top:1px solid var(--rule); font-size:12.5px;
+  color:var(--ink-faint); display:flex; flex-wrap:wrap; gap:6px 18px; }
+
+/* ---- SVG ---- */
+.lane { fill:var(--ground); } .lane-alt { fill:var(--ground-2); }
+.lane-h { fill:var(--stamp-soft); }
+.lane-t { font-family:var(--f-disp); font-size:11.5px; font-weight:600; letter-spacing:.1em;
+  text-anchor:middle; fill:var(--stamp); }
+.lane-r { stroke:var(--rule); stroke-width:1; fill:none; }
+.sh { fill:var(--surface); stroke:var(--rule-strong); stroke-width:1.5; }
+.sh-stamp { stroke:var(--stamp); }
+.sh-reject { stroke:var(--reject); fill:var(--reject-soft); }
+.sh-wait { stroke:var(--wait); fill:var(--wait-soft); }
+.fill-stamp { fill:var(--stamp-soft); }
+.ghost { opacity:.5; }
+.bx-t { font-family:var(--f-body); font-size:12.5px; font-weight:500; fill:var(--ink); text-anchor:middle; }
+.bx-m { font-family:var(--f-mono); font-size:10.5px; font-weight:500; text-anchor:middle; letter-spacing:.02em; }
+.t-ink { fill:var(--ink-faint); } .t-stamp { fill:var(--stamp); }
+.t-reject { fill:var(--reject); } .t-wait { fill:var(--wait); }
+.bx-n { font-family:var(--f-mono); font-size:11px; font-weight:600; fill:var(--paper); text-anchor:middle; }
+.bg-ink { fill:var(--rule-strong); } .bg-stamp { fill:var(--stamp); }
+.bg-reject { fill:var(--reject); } .bg-wait { fill:var(--wait); }
+.fl { fill:none; stroke-width:1.6; stroke-linejoin:round; stroke-linecap:round; }
+.fl-ink { stroke:var(--rule-strong); } .fl-stamp { stroke:var(--stamp); }
+.fl-reject { stroke:var(--reject); } .fl-wait { stroke:var(--wait); }
+.dashed { stroke-dasharray:7 5; }
+.mk-ink { fill:var(--rule-strong); } .mk-stamp { fill:var(--stamp); }
+.mk-reject { fill:var(--reject); } .mk-wait { fill:var(--wait); }
+.lblbg { fill:var(--surface); }
+.fl-l { font-family:var(--f-mono); font-size:10px; font-weight:500; fill:var(--ink-soft); }
+
+@media (max-width:640px) {
+  .ficha div { border-right:0; border-bottom:1px solid var(--rule); }
+  .barra { grid-template-columns:120px 1fr 76px; gap:10px; }
+}
+</style>
+
+<div class="wrap wide">
+<header class="doc">
+  <p class="eyebrow">Universidad Nacional del Altiplano · Puno<br>Facultad de Ciencias Administrativas y Humanas · Escuela Profesional de Administración</p>
+  <h1>Carta de Presentación PPP</h1>
+  <p class="lead">Flujograma funcional del trámite presencial que sigue un estudiante de Administración para obtener
+  la carta de presentación firmada por la Decana, con el tiempo de cada paso, el tiempo que aporta cada involucrado
+  y el costo del tiempo de Secretaría de Decanato.</p>
+  <dl class="ficha">
+    <div><dt>Duración del trámite</dt><dd>2 días hábiles<small>desde la presentación del expediente hasta la entrega</small></dd></div>
+    <div><dt>Trabajo efectivo</dt><dd>78 min<small>1 h 18 min de reloj, sin contar las esperas</small></dd></div>
+    <div><dt>Tiempo-persona</dt><dd>106 min<small>suma del tiempo de los tres actores internos</small></dd></div>
+    <div><dt>Costo de Secretaría</dt><dd>S/ 7.87<small>63 min sobre una remuneración de S/ 1 798.00</small></dd></div>
+    <div><dt>Pasos y responsables</dt><dd>21 · 5<small>21 pasos distribuidos en 5 carriles</small></dd></div>
+  </dl>
+</header>
+
+<section>
+  <div class="sec-h"><span class="sec-n">01</span><h2>Flujograma funcional por responsable</h2></div>
+  <p class="muted">Cada columna es un responsable y cada símbolo respeta la norma ANSI para diagramas de flujo.
+  La ruta violeta es el circuito normal del expediente; la ruta roja es el reproceso que se activa cuando
+  Secretaría observa el expediente.</p>
+  <figure>
+    <div class="diagrama">
+<svg viewBox="0 0 1380 1572" role="img" xmlns="http://www.w3.org/2000/svg" aria-label="Flujograma funcional del trámite de la carta de presentación para prácticas pre profesionales en la Escuela Profesional de Administración de la UNA Puno, con cinco carriles por responsable, tiempos por paso y el ciclo de reproceso cuando el expediente es observado.">
+<defs>
+<marker id="ar-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk mk-ink" d="M0,0 L10,5 L0,10 z"/></marker>
+<marker id="ar-stamp" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk mk-stamp" d="M0,0 L10,5 L0,10 z"/></marker>
+<marker id="ar-reject" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk mk-reject" d="M0,0 L10,5 L0,10 z"/></marker>
+<marker id="ar-wait" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk mk-wait" d="M0,0 L10,5 L0,10 z"/></marker>
+</defs>
+<rect class="lane " x="0" y="58" width="300" height="1514"/>
+<rect class="lane-h" x="0" y="0" width="300" height="58"/>
+<text class="lane-t" x="175" y="33">ESTUDIANTE</text>
+<rect class="lane lane-alt" x="300" y="58" width="260" height="1514"/>
+<rect class="lane-h" x="300" y="0" width="260" height="58"/>
+<text class="lane-t" x="430" y="33">COORDINACIÓN DE PPP</text>
+<rect class="lane " x="560" y="58" width="320" height="1514"/>
+<rect class="lane-h" x="560" y="0" width="320" height="58"/>
+<text class="lane-t" x="720" y="33">SECRETARÍA DE DECANATO</text>
+<rect class="lane lane-alt" x="880" y="58" width="230" height="1514"/>
+<rect class="lane-h" x="880" y="0" width="230" height="58"/>
+<text class="lane-t" x="995" y="33">DECANATO (DECANA)</text>
+<rect class="lane " x="1110" y="58" width="270" height="1514"/>
+<rect class="lane-h" x="1110" y="0" width="270" height="58"/>
+<text class="lane-t" x="1245" y="33">ENTIDAD RECEPTORA</text>
+<line class="lane-r" x1="300" y1="0" x2="300" y2="1572"/>
+<line class="lane-r" x1="560" y1="0" x2="560" y2="1572"/>
+<line class="lane-r" x1="880" y1="0" x2="880" y2="1572"/>
+<line class="lane-r" x1="1110" y1="0" x2="1110" y2="1572"/>
+<line class="lane-r" x1="0" y1="58" x2="1380" y2="58"/>
+<rect class="sh sh-stamp fill-stamp" x="70.0" y="84.0" width="210" height="52" rx="26.0"/>
+<text class="bx-t" x="175" y="114.0">INICIO</text>
+<circle class="bg-stamp" cx="84.0" cy="84.0" r="11"/>
+<text class="bx-n" x="84.0" y="87.6">1</text>
+<polygon class="sh sh-ink" points="75.0,180.0 275.0,180.0 260.0,250.0 90.0,250.0"/>
+<text class="bx-t" x="175" y="197.0">Gestiona y obtiene la plaza</text>
+<text class="bx-t" x="175" y="212.0">de prácticas en la empresa</text>
+<text class="bx-t" x="175" y="227.0">o entidad pública</text>
+<text class="bx-m t-ink" x="175" y="245.0">variable</text>
+<circle class="bg-ink" cx="90.0" cy="180.0" r="11"/>
+<text class="bx-n" x="90.0" y="183.6">2</text>
+<path class="sh sh-ink" d="M1140.0,182.0 H1350.0 V239.0 C1291.2,252.0 1198.8,226.0 1140.0,239.0 Z"/>
+<text class="bx-t" x="1245" y="208.5">Comunica los requisitos</text>
+<text class="bx-t" x="1245" y="223.5">de admisión del practicante</text>
+<circle class="bg-ink" cx="1140.0" cy="182.0" r="11"/>
+<text class="bx-n" x="1140.0" y="185.6">3</text>
+<rect class="sh sh-ink" x="75.0" y="287.0" width="200" height="66" rx="3"/>
+<text class="bx-t" x="175" y="309.5">Acude a Coordinación de PPP</text>
+<text class="bx-t" x="175" y="324.5">y consulta los requisitos</text>
+<text class="bx-m t-ink" x="175" y="342.5">15 min</text>
+<circle class="bg-ink" cx="75.0" cy="287.0" r="11"/>
+<text class="bx-n" x="75.0" y="290.6">4</text>
+<polygon class="sh sh-stamp" points="330.0,285.0 530.0,285.0 515.0,355.0 345.0,355.0"/>
+<text class="bx-t" x="430" y="302.0">Absuelve la consulta e</text>
+<text class="bx-t" x="430" y="317.0">informa los requisitos</text>
+<text class="bx-t" x="430" y="332.0">para emitir la carta</text>
+<text class="bx-m t-stamp" x="430" y="350.0">15 min</text>
+<circle class="bg-stamp" cx="345.0" cy="285.0" r="11"/>
+<text class="bx-n" x="345.0" y="288.6">5</text>
+<path class="sh sh-ink ghost" d="M84.0,382.0 H284.0 V447.0 C228.0,460.0 140.0,434.0 84.0,447.0 Z"/>
+<path class="sh sh-ink ghost" d="M79.5,386.5 H279.5 V451.5 C223.5,464.5 135.5,438.5 79.5,451.5 Z"/>
+<path class="sh sh-ink" d="M75.0,391.0 H275.0 V456.0 C219.0,469.0 131.0,443.0 75.0,456.0 Z"/>
+<text class="bx-t" x="175" y="414.0">Elabora la carta de</text>
+<text class="bx-t" x="175" y="429.0">presentación y adjunta</text>
+<text class="bx-t" x="175" y="444.0">la ficha de matrícula</text>
+<circle class="bg-ink" cx="75.0" cy="391.0" r="11"/>
+<text class="bx-n" x="75.0" y="394.6">6</text>
+<rect class="sh sh-ink" x="75.0" y="497.0" width="200" height="66" rx="3"/>
+<text class="bx-t" x="175" y="519.5">Presenta el expediente en</text>
+<text class="bx-t" x="175" y="534.5">Secretaría de Decanato</text>
+<text class="bx-m t-ink" x="175" y="552.5">8 min</text>
+<circle class="bg-ink" cx="75.0" cy="497.0" r="11"/>
+<text class="bx-n" x="75.0" y="500.6">7</text>
+<rect class="sh sh-stamp" x="605.0" y="495.0" width="230" height="70" rx="3"/>
+<text class="bx-t" x="720" y="512.0">Recepciona, formula preguntas</text>
+<text class="bx-t" x="720" y="527.0">previas y verifica que el</text>
+<text class="bx-t" x="720" y="542.0">expediente esté completo</text>
+<text class="bx-m t-stamp" x="720" y="560.0">8 min</text>
+<circle class="bg-stamp" cx="605.0" cy="495.0" r="11"/>
+<text class="bx-n" x="605.0" y="498.6">8</text>
+<polygon class="sh sh-stamp" points="720,603.0 851.0,655 720,707.0 589.0,655"/>
+<circle class="bg-stamp" cx="720" cy="620.0" r="11"/>
+<text class="bx-n" x="720" y="623.6">9</text>
+<text class="bx-t" x="720" y="653.0">¿El expediente cumple</text>
+<text class="bx-t" x="720" y="668.0">todos los requisitos</text>
+<text class="bx-t" x="720" y="683.0">exigidos?</text>
+<rect class="sh sh-reject" x="605.0" y="752.0" width="230" height="66" rx="3"/>
+<text class="bx-t" x="720" y="781.5">Observa el expediente y lo</text>
+<text class="bx-t" x="720" y="796.5">devuelve al estudiante</text>
+<circle class="bg-reject" cx="605.0" cy="752.0" r="11"/>
+<text class="bx-n" x="605.0" y="755.6">10</text>
+<path class="sh sh-wait" d="M75.0,754.0 H244.0 A31.0,31.0 0 0 1 244.0,816.0 H75.0 Z"/>
+<text class="bx-t" x="167" y="774.5">Espera al siguiente</text>
+<text class="bx-t" x="167" y="789.5">día hábil para corregir</text>
+<text class="bx-m t-wait" x="167" y="807.5">+1 día hábil</text>
+<circle class="bg-wait" cx="75.0" cy="754.0" r="11"/>
+<text class="bx-n" x="75.0" y="757.6">11</text>
+<rect class="sh sh-stamp" x="605.0" y="859.0" width="230" height="62" rx="3"/>
+<text class="bx-t" x="720" y="886.5">Sella y firma el cargo</text>
+<text class="bx-t" x="720" y="901.5">de recepción</text>
+<circle class="bg-stamp" cx="605.0" cy="859.0" r="11"/>
+<text class="bx-n" x="605.0" y="862.6">12</text>
+<path class="sh sh-stamp" d="M605.0,960.0 H835.0 V1025.0 C770.6,1038.0 669.4,1012.0 605.0,1025.0 Z"/>
+<text class="bx-t" x="720" y="983.5">Redacta la carta de</text>
+<text class="bx-t" x="720" y="998.5">presentación oficial</text>
+<text class="bx-m t-stamp" x="720" y="1016.5">40 min</text>
+<circle class="bg-stamp" cx="605.0" cy="960.0" r="11"/>
+<text class="bx-n" x="605.0" y="963.6">13</text>
+<rect class="sh sh-stamp" x="605.0" y="1069.0" width="230" height="66" rx="3"/>
+<text class="bx-t" x="720" y="1091.5">Traslada la carta a Decanato</text>
+<text class="bx-t" x="720" y="1106.5">para su visación</text>
+<text class="bx-m t-stamp" x="720" y="1124.5">10 min</text>
+<circle class="bg-stamp" cx="605.0" cy="1069.0" r="11"/>
+<text class="bx-n" x="605.0" y="1072.6">14</text>
+<polygon class="sh sh-stamp" points="900.0,1067.0 1090.0,1067.0 1075.0,1137.0 915.0,1137.0"/>
+<text class="bx-t" x="995" y="1091.5">Firma y sella la</text>
+<text class="bx-t" x="995" y="1106.5">carta de presentación</text>
+<text class="bx-m t-stamp" x="995" y="1124.5">incluido</text>
+<circle class="bg-stamp" cx="915.0" cy="1067.0" r="11"/>
+<text class="bx-n" x="915.0" y="1070.6">15</text>
+<path class="sh sh-wait" d="M605.0,1176.0 H804.0 A31.0,31.0 0 0 1 804.0,1238.0 H605.0 Z"/>
+<text class="bx-t" x="712" y="1196.5">Espera hasta el</text>
+<text class="bx-t" x="712" y="1211.5">siguiente día hábil</text>
+<text class="bx-m t-wait" x="712" y="1229.5">+1 día hábil</text>
+<circle class="bg-wait" cx="605.0" cy="1176.0" r="11"/>
+<text class="bx-n" x="605.0" y="1179.6">16</text>
+<rect class="sh sh-stamp" x="605.0" y="1281.0" width="230" height="62" rx="3"/>
+<text class="bx-t" x="720" y="1301.5">Entrega la carta firmada</text>
+<text class="bx-t" x="720" y="1316.5">al estudiante</text>
+<text class="bx-m t-stamp" x="720" y="1334.5">5 min</text>
+<circle class="bg-stamp" cx="605.0" cy="1281.0" r="11"/>
+<text class="bx-n" x="605.0" y="1284.6">17</text>
+<path class="sh sh-ink" d="M75.0,1279.0 H275.0 V1336.0 C219.0,1349.0 131.0,1323.0 75.0,1336.0 Z"/>
+<text class="bx-t" x="175" y="1305.5">Carta de presentación</text>
+<text class="bx-t" x="175" y="1320.5">firmada y sellada</text>
+<circle class="bg-ink" cx="75.0" cy="1279.0" r="11"/>
+<text class="bx-n" x="75.0" y="1282.6">18</text>
+<rect class="sh sh-ink" x="75.0" y="1386.0" width="200" height="62" rx="3"/>
+<text class="bx-t" x="175" y="1413.5">Presenta la carta a la</text>
+<text class="bx-t" x="175" y="1428.5">entidad receptora</text>
+<circle class="bg-ink" cx="75.0" cy="1386.0" r="11"/>
+<text class="bx-n" x="75.0" y="1389.6">19</text>
+<rect class="sh sh-ink" x="1140.0" y="1386.0" width="210" height="62" rx="3"/>
+<text class="bx-t" x="1245" y="1413.5">Recibe la carta y acepta</text>
+<text class="bx-t" x="1245" y="1428.5">al practicante</text>
+<circle class="bg-ink" cx="1140.0" cy="1386.0" r="11"/>
+<text class="bx-n" x="1140.0" y="1389.6">20</text>
+<rect class="sh sh-stamp fill-stamp" x="70.0" y="1496.0" width="210" height="52" rx="26.0"/>
+<text class="bx-t" x="175" y="1526.0">FIN</text>
+<circle class="bg-stamp" cx="84.0" cy="1496.0" r="11"/>
+<text class="bx-n" x="84.0" y="1499.6">21</text>
+<polyline class="fl fl-ink" points="175,136 175,180" marker-end="url(#ar-ink)"/>
+<polyline class="fl fl-ink dashed" points="1140,215 285,215" marker-end="url(#ar-ink)"/>
+<rect class="lblbg" x="701.0" y="198.0" width="178.0" height="15" rx="3"/>
+<text class="fl-l" x="790" y="209" text-anchor="middle">informa requisitos de admisión</text>
+<polyline class="fl fl-ink" points="175,250 175,287" marker-end="url(#ar-ink)"/>
+<polyline class="fl fl-stamp" points="275,320 330,320" marker-end="url(#ar-stamp)"/>
+<polyline class="fl fl-stamp" points="430,355 430,375 175,375 175,391" marker-end="url(#ar-stamp)"/>
+<rect class="lblbg" x="288.2" y="360.0" width="127.6" height="15" rx="3"/>
+<text class="fl-l" x="352" y="371" text-anchor="middle">requisitos informados</text>
+<polyline class="fl fl-ink" points="175,465 175,497" marker-end="url(#ar-ink)"/>
+<polyline class="fl fl-stamp" points="275,530 605,530" marker-end="url(#ar-stamp)"/>
+<rect class="lblbg" x="407.0" y="513.0" width="66.0" height="15" rx="3"/>
+<text class="fl-l" x="440" y="524" text-anchor="middle">expediente</text>
+<polyline class="fl fl-ink" points="720,565 720,603" marker-end="url(#ar-ink)"/>
+<polyline class="fl fl-reject" points="720,707 720,752" marker-end="url(#ar-reject)"/>
+<rect class="lblbg" x="731.4" y="721.0" width="21.2" height="15" rx="3"/>
+<text class="fl-l" x="742" y="732" text-anchor="start">No</text>
+<polyline class="fl fl-stamp" points="851,655 864,655 864,890 835,890" marker-end="url(#ar-stamp)"/>
+<rect class="lblbg" x="845.4" y="636.0" width="21.2" height="15" rx="3"/>
+<text class="fl-l" x="856" y="647" text-anchor="middle">Sí</text>
+<polyline class="fl fl-reject" points="605,785 285,785" marker-end="url(#ar-reject)"/>
+<rect class="lblbg" x="384.0" y="768.0" width="122.0" height="15" rx="3"/>
+<text class="fl-l" x="445" y="779" text-anchor="middle">expediente observado</text>
+<polyline class="fl fl-reject" points="75,785 28,785 28,428 65,428" marker-end="url(#ar-reject)"/>
+<rect class="lblbg" x="59.8" y="603.0" width="116.4" height="15" rx="3"/>
+<text class="fl-l" x="118" y="614" text-anchor="middle">corrige y reingresa</text>
+<polyline class="fl fl-stamp" points="720,921 720,962" marker-end="url(#ar-stamp)"/>
+<polyline class="fl fl-stamp" points="720,1034 720,1069" marker-end="url(#ar-stamp)"/>
+<polyline class="fl fl-stamp" points="835,1102 900,1102" marker-end="url(#ar-stamp)"/>
+<rect class="lblbg" x="835.0" y="1076.0" width="66.0" height="15" rx="3"/>
+<text class="fl-l" x="868" y="1087" text-anchor="middle">para firma</text>
+<polyline class="fl fl-stamp" points="995,1137 995,1162 720,1162 720,1176" marker-end="url(#ar-stamp)"/>
+<rect class="lblbg" x="838.6" y="1147.0" width="82.8" height="15" rx="3"/>
+<text class="fl-l" x="880" y="1158" text-anchor="middle">carta firmada</text>
+<polyline class="fl fl-wait" points="720,1238 720,1281" marker-end="url(#ar-wait)"/>
+<polyline class="fl fl-stamp" points="605,1312 285,1312" marker-end="url(#ar-stamp)"/>
+<rect class="lblbg" x="420.4" y="1295.0" width="49.2" height="15" rx="3"/>
+<text class="fl-l" x="445" y="1306" text-anchor="middle">entrega</text>
+<polyline class="fl fl-ink" points="175,1345 175,1386" marker-end="url(#ar-ink)"/>
+<polyline class="fl fl-ink" points="275,1417 1140,1417" marker-end="url(#ar-ink)"/>
+<rect class="lblbg" x="647.4" y="1400.0" width="105.2" height="15" rx="3"/>
+<text class="fl-l" x="700" y="1411" text-anchor="middle">presenta la carta</text>
+<polyline class="fl fl-ink" points="175,1448 175,1496" marker-end="url(#ar-ink)"/>
+</svg>
+    </div>
+    <figcaption><strong>Figura 1.</strong> Trámite de la carta de presentación para prácticas pre profesionales.
+    El expediente cruza tres veces la frontera entre el estudiante y Secretaría de Decanato, y las dos únicas
+    esperas del proceso (pasos 11 y 16) son las que convierten 78 minutos de trabajo en 2 días hábiles de trámite.</figcaption>
+  </figure>
+  <div class="leyenda">
+    <div class="ley"><span class="sym sym-terminal"></span><div><b>Terminal</b><span class="d">Inicio y fin del proceso</span></div></div>
+    <div class="ley"><span class="sym sym-proceso"></span><div><b>Proceso</b><span class="d">Actividad u operación</span></div></div>
+    <div class="ley"><span class="sym sym-manual"></span><div><b>Operación manual</b><span class="d">Trabajo hecho a mano, sin equipo</span></div></div>
+    <div class="ley"><span class="sym sym-doc"></span><div><b>Documento</b><span class="d">Documento emitido o recibido</span></div></div>
+    <div class="ley"><span class="sym sym-multidoc"></span><div><b>Multidocumento</b><span class="d">Expediente: carta más ficha de matrícula</span></div></div>
+    <div class="ley"><span class="sym sym-decision"></span><div><b>Decisión</b><span class="d">Bifurcación con salidas Sí y No</span></div></div>
+    <div class="ley"><span class="sym sym-demora"></span><div><b>Demora</b><span class="d">Espera hasta el siguiente día hábil</span></div></div>
+    <div class="ley"><span class="sym" style="border:0;background:none;position:relative;top:6px;border-top:1.6px dashed var(--rule-strong);height:0"></span><div><b>Flujo punteado</b><span class="d">Comunicación con la entidad externa</span></div></div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-h"><span class="sec-n">02</span><h2>Ficha de tiempos paso a paso</h2></div>
+  <p class="muted">El tiempo efectivo es el trabajo real de la persona; la espera es el tiempo en que el expediente
+  no avanza. Los pasos 10 a 12 pertenecen a las dos salidas de la decisión del paso 9.</p>
+  <div class="tbl-wrap">
+  <table>
+    <thead><tr><th>N.º</th><th>Actividad</th><th>Responsable</th><th>Símbolo</th><th>Tiempo efectivo</th><th>Espera</th></tr></thead>
+    <tbody>
+<tr><td class="num">1</td><td>Inicio: el estudiante requiere realizar sus prácticas pre profesionales</td><td class="resp">Estudiante</td><td><span class="sym sym-terminal" aria-hidden="true"></span>Terminal</td><td class="mono">—</td><td class="mono esp">—</td></tr>
+<tr><td class="num">2</td><td>Gestiona y obtiene la plaza de prácticas en la empresa o entidad pública</td><td class="resp">Estudiante</td><td><span class="sym sym-manual" aria-hidden="true"></span>Operación manual</td><td class="mono">Variable</td><td class="mono esp">—</td></tr>
+<tr><td class="num">3</td><td>Comunica los requisitos de admisión del practicante</td><td class="resp">Entidad receptora</td><td><span class="sym sym-doc" aria-hidden="true"></span>Documento</td><td class="mono">Variable</td><td class="mono esp">—</td></tr>
+<tr><td class="num">4</td><td>Acude a Coordinación de PPP y consulta los requisitos de la carta</td><td class="resp">Estudiante</td><td><span class="sym sym-proceso" aria-hidden="true"></span>Proceso</td><td class="mono">15 min</td><td class="mono esp">—</td></tr>
+<tr><td class="num">5</td><td>Absuelve la consulta e informa los requisitos para emitir la carta</td><td class="resp">Coordinación de PPP</td><td><span class="sym sym-manual" aria-hidden="true"></span>Operación manual</td><td class="mono">15 min</td><td class="mono esp">—</td></tr>
+<tr><td class="num">6</td><td>Elabora la carta de presentación y adjunta la ficha de matrícula</td><td class="resp">Estudiante</td><td><span class="sym sym-multidoc" aria-hidden="true"></span>Multidocumento</td><td class="mono">Variable</td><td class="mono esp">—</td></tr>
+<tr><td class="num">7</td><td>Presenta el expediente en Secretaría de Decanato</td><td class="resp">Estudiante</td><td><span class="sym sym-proceso" aria-hidden="true"></span>Proceso</td><td class="mono">8 min</td><td class="mono esp">—</td></tr>
+<tr><td class="num">8</td><td>Recepciona, formula preguntas previas y verifica que el expediente esté completo</td><td class="resp">Secretaría de Decanato</td><td><span class="sym sym-proceso" aria-hidden="true"></span>Proceso</td><td class="mono">8 min</td><td class="mono esp">—</td></tr>
+<tr><td class="num">9</td><td>¿El expediente cumple todos los requisitos exigidos?</td><td class="resp">Secretaría de Decanato</td><td><span class="sym sym-decision" aria-hidden="true"></span>Decisión</td><td class="mono">—</td><td class="mono esp">—</td></tr>
+<tr><td class="num">10</td><td>Ruta NO · Observa el expediente y lo devuelve al estudiante</td><td class="resp">Secretaría de Decanato</td><td><span class="sym sym-proceso" aria-hidden="true"></span>Proceso</td><td class="mono">incluido en el paso 8</td><td class="mono esp">—</td></tr>
+<tr><td class="num">11</td><td>Ruta NO · Espera al siguiente día hábil para corregir y reingresar</td><td class="resp">Estudiante</td><td><span class="sym sym-demora" aria-hidden="true"></span>Demora</td><td class="mono">—</td><td class="mono esp">1 día hábil</td></tr>
+<tr><td class="num">12</td><td>Ruta SÍ · Sella y firma el cargo de recepción</td><td class="resp">Secretaría de Decanato</td><td><span class="sym sym-proceso" aria-hidden="true"></span>Proceso</td><td class="mono">incluido en el paso 8</td><td class="mono esp">—</td></tr>
+<tr><td class="num">13</td><td>Redacta la carta de presentación oficial</td><td class="resp">Secretaría de Decanato</td><td><span class="sym sym-doc" aria-hidden="true"></span>Documento</td><td class="mono">40 min</td><td class="mono esp">—</td></tr>
+<tr><td class="num">14</td><td>Traslada la carta a Decanato para su visación</td><td class="resp">Secretaría de Decanato</td><td><span class="sym sym-proceso" aria-hidden="true"></span>Proceso</td><td class="mono">10 min</td><td class="mono esp">—</td></tr>
+<tr><td class="num">15</td><td>Firma y sella la carta de presentación</td><td class="resp">Decana de la FCAH</td><td><span class="sym sym-manual" aria-hidden="true"></span>Operación manual</td><td class="mono">incluido en el paso 14</td><td class="mono esp">—</td></tr>
+<tr><td class="num">16</td><td>Espera hasta el siguiente día hábil</td><td class="resp">Secretaría de Decanato</td><td><span class="sym sym-demora" aria-hidden="true"></span>Demora</td><td class="mono">—</td><td class="mono esp">1 día hábil</td></tr>
+<tr><td class="num">17</td><td>Entrega la carta de presentación firmada al estudiante</td><td class="resp">Secretaría de Decanato</td><td><span class="sym sym-proceso" aria-hidden="true"></span>Proceso</td><td class="mono">5 min</td><td class="mono esp">—</td></tr>
+<tr><td class="num">18</td><td>Recibe la carta de presentación firmada y sellada</td><td class="resp">Estudiante</td><td><span class="sym sym-doc" aria-hidden="true"></span>Documento</td><td class="mono">—</td><td class="mono esp">—</td></tr>
+<tr><td class="num">19</td><td>Presenta la carta a la entidad receptora</td><td class="resp">Estudiante</td><td><span class="sym sym-proceso" aria-hidden="true"></span>Proceso</td><td class="mono">Variable</td><td class="mono esp">—</td></tr>
+<tr><td class="num">20</td><td>Recibe la carta y acepta al practicante</td><td class="resp">Entidad receptora</td><td><span class="sym sym-proceso" aria-hidden="true"></span>Proceso</td><td class="mono">Variable</td><td class="mono esp">—</td></tr>
+<tr><td class="num">21</td><td>Fin: inicia las prácticas pre profesionales</td><td class="resp">Estudiante</td><td><span class="sym sym-terminal" aria-hidden="true"></span>Terminal</td><td class="mono">—</td><td class="mono esp">—</td></tr>
+    </tbody>
+    <tfoot><tr><td colspan="4">Trabajo efectivo de reloj en la ruta sin observación</td><td class="mono">78 min</td><td class="mono esp">2 días hábiles</td></tr></tfoot>
+  </table>
+  </div>
+</section>
+
+<section>
+  <div class="sec-h"><span class="sec-n">03</span><h2>Tiempo que aporta cada involucrado</h2></div>
+  <p class="muted">Suma del tiempo efectivo de cada persona en la ruta sin observación. La suma llega a 106 minutos
+  y no a 78 porque los pasos de mostrador (4 y 5, 7 y 8, 17 y 18) ocupan a dos personas al mismo tiempo.</p>
+  <div class="barras">
+    <div class="barra"><span class="n">Secretaría de Decanato</span><span class="t b-sec" style="width:100%"></span><span class="v">63 min</span></div>
+    <div class="barra"><span class="n">Estudiante</span><span class="t b-est" style="width:44.4%"></span><span class="v">28 min</span></div>
+    <div class="barra"><span class="n">Coordinación de PPP</span><span class="t b-coo" style="width:23.8%"></span><span class="v">15 min</span></div>
+    <div class="barra"><span class="n">Decana de la FCAH</span><span class="t b-dec" style="width:4.0%"></span><span class="v">≈ 2–3 min</span></div>
+    <div class="barra"><span class="n">Entidad receptora</span><span class="t" style="width:6%;background:repeating-linear-gradient(90deg,var(--rule) 0 4px,transparent 4px 8px)"></span><span class="v">no medido</span></div>
+  </div>
+  <div class="nota"><strong>Cuello de botella.</strong> Secretaría de Decanato concentra el 59 % del tiempo-persona
+  del trámite y es el único carril que interviene en cinco pasos consecutivos (8, 12, 13, 14 y 17). Los 40 minutos
+  de redacción son, por sí solos, más de la mitad de su carga.</div>
+</section>
+
+<section>
+  <div class="sec-h"><span class="sec-n">04</span><h2>Costo del tiempo de la Secretaría de Decanato</h2></div>
+  <p class="muted">Se valoriza el tiempo efectivo de la secretaria a partir de una remuneración mensual de
+  S/ 1 798.00, con la convención laboral peruana de mes de 30 días y jornada de 8 horas diarias.</p>
+  <div class="calculo">
+    <span class="r"><b>Valor día</b> <span>=</span> S/ 1 798.00 ÷ 30 días <span>=</span> <b>S/ 59.9333</b></span>
+    <span class="r"><b>Valor hora</b> <span>=</span> S/ 59.9333 ÷ 8 horas <span>=</span> <b>S/ 7.4917</b></span>
+    <span class="r"><b>Valor minuto</b> <span>=</span> S/ 7.4917 ÷ 60 min <span>=</span> <b>S/ 0.124861</b></span>
+  </div>
+  <h3>Costo por paso</h3>
+  <div class="tbl-wrap">
+  <table>
+    <thead><tr><th>Paso</th><th>Actividad de la secretaria</th><th>Minutos</th><th>S/ por minuto</th><th>Costo</th></tr></thead>
+    <tbody>
+<tr><td class="num">8</td><td>Recepción, preguntas previas, verificación y cargo</td><td class="mono">8</td><td class="mono">0.1249</td><td class="mono val">S/ 1.00</td></tr>
+<tr><td class="num">13</td><td>Redacción de la carta de presentación</td><td class="mono">40</td><td class="mono">0.1249</td><td class="mono val">S/ 4.99</td></tr>
+<tr><td class="num">14</td><td>Traslado a Decanato, visación y firma</td><td class="mono">10</td><td class="mono">0.1249</td><td class="mono val">S/ 1.25</td></tr>
+<tr><td class="num">17</td><td>Entrega de la carta firmada al estudiante</td><td class="mono">5</td><td class="mono">0.1249</td><td class="mono val">S/ 0.62</td></tr>
+    </tbody>
+    <tfoot><tr><td colspan="2">Costo del tiempo de Secretaría por cada carta emitida</td><td>63 min</td><td>0.1249</td><td>S/ 7.87</td></tr></tfoot>
+  </table>
+  </div>
+  <h3>Escenarios según la base de horas mensuales</h3>
+  <div class="tbl-wrap">
+  <table>
+    <thead><tr><th>Base de cálculo</th><th>Horas al mes</th><th>Valor hora</th><th>Costo de los 63 min</th></tr></thead>
+    <tbody>
+      <tr><td>Convención laboral: 30 días × 8 h <span class="muted">(referencia usada)</span></td><td class="mono">240 h</td><td class="mono">S/ 7.4917</td><td class="mono val">S/ 7.87</td></tr>
+      <tr><td>Días efectivamente laborados: 26 × 8 h</td><td class="mono">208 h</td><td class="mono">S/ 8.6442</td><td class="mono val">S/ 9.08</td></tr>
+      <tr><td>Solo días hábiles: 22 × 8 h</td><td class="mono">176 h</td><td class="mono">S/ 10.2159</td><td class="mono val">S/ 10.73</td></tr>
+      <tr><td>Referencia + 9 % de EsSalud a cargo del empleador</td><td class="mono">240 h</td><td class="mono">S/ 8.1660</td><td class="mono val">S/ 8.57</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <h3>Proyección por volumen de cartas</h3>
+  <p class="muted">Proyección ilustrativa: el volumen semestral real de la Escuela Profesional no fue levantado,
+  de modo que estas cifras sirven para dimensionar la carga, no para reportarla como dato.</p>
+  <div class="tbl-wrap">
+  <table>
+    <thead><tr><th>Cartas por semestre</th><th>Tiempo de Secretaría</th><th>Costo del tiempo</th></tr></thead>
+    <tbody>
+      <tr><td class="mono">50</td><td class="mono">52 h 30 min</td><td class="mono val">S/ 393.31</td></tr>
+      <tr><td class="mono">100</td><td class="mono">105 h 00 min</td><td class="mono val">S/ 786.62</td></tr>
+      <tr><td class="mono">200</td><td class="mono">210 h 00 min</td><td class="mono val">S/ 1 573.24</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<section>
+  <div class="sec-h"><span class="sec-n">05</span><h2>Qué cuesta una observación</h2></div>
+  <p class="muted">Cuando el expediente no cumple los requisitos, el estudiante debe corregirlo y reingresarlo
+  al día siguiente hábil. El ciclo del flujograma vuelve al paso 6 y arrastra estos efectos por cada vuelta:</p>
+  <div class="tbl-wrap">
+  <table>
+    <thead><tr><th>Escenario</th><th>Duración del trámite</th><th>Tiempo de Secretaría</th><th>Costo de Secretaría</th></tr></thead>
+    <tbody>
+      <tr><td>Expediente conforme a la primera</td><td class="mono">2 días hábiles</td><td class="mono">63 min</td><td class="mono val">S/ 7.87</td></tr>
+      <tr><td>Una observación</td><td class="mono esp">3 días hábiles</td><td class="mono">71 min</td><td class="mono val">S/ 8.87</td></tr>
+      <tr><td>Dos observaciones</td><td class="mono esp">4 días hábiles</td><td class="mono">79 min</td><td class="mono val">S/ 9.87</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="nota alerta"><strong>Dónde se pierde el tiempo.</strong> Cada observación cuesta 8 minutos de
+  Secretaría, pero le cuesta al estudiante un día hábil completo. El paso 4, la consulta de 15 minutos en
+  Coordinación de PPP, es justamente la barrera que evita ese reproceso: es el paso más barato del flujograma
+  y el que más días ahorra.</div>
+</section>
+
+<section>
+  <div class="sec-h"><span class="sec-n">06</span><h2>Supuestos y datos no levantados</h2></div>
+  <ol class="sup">
+    <li>La remuneración de S/ 1 798.00 se toma como bruto mensual. El escenario de referencia no incluye
+    gratificaciones, CTS ni cargas sociales; estas últimas se muestran aparte con la tasa de EsSalud de 9 %.</li>
+    <li>La firma y el sello de la Decana están contenidos dentro de los 10 minutos del paso 14, que cubren el
+    traslado de la carta, la espera en Decanato y la firma. Los 2 a 3 minutos que se le atribuyen son una estimación.</li>
+    <li>No se midieron: la búsqueda y obtención de la plaza de prácticas (paso 2), la elaboración del documento
+    por parte del estudiante (paso 6) ni los desplazamientos dentro del campus.</li>
+    <li>Las esperas se modelan como un día hábil. Si el expediente se presenta un viernes, el efecto real sobre
+    el calendario es de tres días.</li>
+    <li>El trámite es íntegramente presencial en la Facultad. No se consideró mesa de partes virtual ni
+    correo institucional.</li>
+    <li>Según lo levantado, el trámite no exige FUT ni pago por derecho de trámite: el estudiante elabora él mismo
+    la carta y Secretaría redacta la versión oficial. Si la Facultad incorporara ese requisito, se sumaría un paso
+    de tesorería antes del paso 7.</li>
+    <li>El ciclo de reproceso se dibuja una sola vez. En la práctica puede repetirse, y cada vuelta agrega un día
+    hábil y 8 minutos de Secretaría.</li>
+  </ol>
+</section>
+
+<section>
+  <div class="sec-h"><span class="sec-n">07</span><h2>Versión BPMN 2.0 para exportar</h2></div>
+  <p class="muted">El mismo proceso está modelado en notación BPMN 2.0 en el archivo
+  <span class="mono">carta-presentacion-ppp.bpmn</span>, que se entrega junto a esta página. Es XML estándar con
+  diagrama de intercambio incluido, de modo que se abre y se edita sin ajustes en Camunda Modeler, bpmn.io,
+  draw.io o Signavio, y desde ahí se exporta a PNG, SVG o PDF.</p>
+  <div class="tbl-wrap">
+  <table>
+    <thead><tr><th>Elemento BPMN</th><th>Cantidad</th><th>Detalle</th></tr></thead>
+    <tbody>
+      <tr><td>Participantes (pools)</td><td class="mono">2</td><td>UNA Puno · FCAH y la entidad receptora, modelada como caja negra</td></tr>
+      <tr><td>Carriles (lanes)</td><td class="mono">4</td><td>Estudiante, Coordinación de PPP, Secretaría de Decanato y Decanato</td></tr>
+      <tr><td>Tareas</td><td class="mono">13</td><td>Diferenciadas entre <span class="mono">userTask</span> y <span class="mono">manualTask</span></td></tr>
+      <tr><td>Compuertas exclusivas</td><td class="mono">2</td><td>Una divergente en la verificación y una convergente en el reingreso</td></tr>
+      <tr><td>Eventos temporizadores</td><td class="mono">2</td><td>Las dos esperas de un día hábil</td></tr>
+      <tr><td>Flujos de mensaje</td><td class="mono">2</td><td>Intercambio con la entidad receptora</td></tr>
+      <tr><td>Flujos de secuencia</td><td class="mono">19</td><td>Incluye el ciclo de reproceso del expediente observado</td></tr>
+      <tr><td>Anotaciones</td><td class="mono">5</td><td>Tiempo y costo al pie del diagrama, más documentación en cada elemento</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="chips">
+    <span class="chip">BPMN 2.0 · OMG</span><span class="chip">Diagram Interchange incluido</span>
+    <span class="chip">Camunda Modeler</span><span class="chip">bpmn.io</span><span class="chip">draw.io</span>
+    <span class="chip">Signavio</span>
+  </div>
+</section>
+
+<footer>
+  <span>Escuela Profesional de Administración · Facultad de Ciencias Administrativas y Humanas</span>
+  <span>Universidad Nacional del Altiplano · Puno</span>
+  <span>Levantamiento del proceso: setiembre de 2026</span>
+</footer>
+</div>

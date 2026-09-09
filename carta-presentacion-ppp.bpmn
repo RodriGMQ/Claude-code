@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_CartaPPP" targetNamespace="http://unap.edu.pe/fcah/ppp" exporter="UNA Puno - FCAH" exporterVersion="1.0">
+  <bpmn:collaboration id="Collaboration_1">
+    <bpmn:documentation>Trámite de emisión de la carta de presentación para prácticas pre profesionales. Escuela Profesional de Administración, Facultad de Ciencias Administrativas y Humanas, Universidad Nacional del Altiplano - Puno. Duración: 2 días hábiles. Trabajo efectivo: 78 min. Costo del tiempo de la Secretaría de Decanato: S/ 7.87 por carta.</bpmn:documentation>
+    <bpmn:participant id="Participant_FCAH" name="UNA Puno · Facultad de Ciencias Administrativas y Humanas" processRef="Process_CartaPPP" />
+    <bpmn:participant id="Participant_Entidad" name="Entidad receptora (empresa o entidad pública)" />
+    <bpmn:messageFlow id="MsgFlow_01" name="requisitos de admisión del practicante" sourceRef="Participant_Entidad" targetRef="Task_Plaza" />
+    <bpmn:messageFlow id="MsgFlow_02" name="carta de presentación firmada" sourceRef="Task_PresentaEntidad" targetRef="Participant_Entidad" />
+  </bpmn:collaboration>
+  <bpmn:process id="Process_CartaPPP" isExecutable="false">
+    <bpmn:laneSet id="LaneSet_1">
+      <bpmn:lane id="Lane_Estudiante" name="Estudiante">
+        <bpmn:flowNodeRef>StartEvent_Inicio</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_Plaza</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_Consulta</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_Merge</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_Elabora</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_Presenta</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Event_Espera1</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PresentaEntidad</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndEvent_Fin</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_Coordinacion" name="Coordinación de Prácticas Pre Profesionales">
+        <bpmn:flowNodeRef>Task_Absuelve</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_Secretaria" name="Secretaría de Decanato">
+        <bpmn:flowNodeRef>Task_Recepciona</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_Cumple</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_Observa</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_Cargo</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_Redacta</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_Visa</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Event_Espera2</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_Entrega</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_Decanato" name="Decanato · Decana de la FCAH">
+        <bpmn:flowNodeRef>Task_Firma</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:startEvent id="StartEvent_Inicio" name="El estudiante requiere realizar sus PPP">
+      <bpmn:documentation>Evento inicial del trámite.</bpmn:documentation>
+      <bpmn:outgoing>Flow_01</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:manualTask id="Task_Plaza" name="Gestiona y obtiene la plaza de prácticas">
+      <bpmn:documentation>Busca la empresa o entidad pública receptora y revisa los requisitos que ella exige. Tiempo variable, no medido.</bpmn:documentation>
+      <bpmn:incoming>Flow_01</bpmn:incoming>
+      <bpmn:outgoing>Flow_02</bpmn:outgoing>
+    </bpmn:manualTask>
+    <bpmn:userTask id="Task_Consulta" name="Consulta los requisitos en Coordinación de PPP">
+      <bpmn:documentation>Tiempo efectivo: 15 min del estudiante.</bpmn:documentation>
+      <bpmn:incoming>Flow_02</bpmn:incoming>
+      <bpmn:outgoing>Flow_03</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:manualTask id="Task_Absuelve" name="Absuelve la consulta e informa los requisitos">
+      <bpmn:documentation>Tiempo efectivo: 15 min de la Coordinación de Prácticas Pre Profesionales.</bpmn:documentation>
+      <bpmn:incoming>Flow_03</bpmn:incoming>
+      <bpmn:outgoing>Flow_04</bpmn:outgoing>
+    </bpmn:manualTask>
+    <bpmn:exclusiveGateway id="Gateway_Merge">
+      <bpmn:documentation>Punto de reingreso del expediente observado.</bpmn:documentation>
+      <bpmn:incoming>Flow_04</bpmn:incoming>
+      <bpmn:incoming>Flow_12</bpmn:incoming>
+      <bpmn:outgoing>Flow_05</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:userTask id="Task_Elabora" name="Elabora la carta y adjunta la ficha de matrícula">
+      <bpmn:documentation>Expediente: carta de presentación redactada por el estudiante más la ficha de matrícula. Tiempo variable, no medido.</bpmn:documentation>
+      <bpmn:incoming>Flow_05</bpmn:incoming>
+      <bpmn:outgoing>Flow_06</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="Task_Presenta" name="Presenta el expediente en Secretaría de Decanato">
+      <bpmn:documentation>Tiempo efectivo: 8 min del estudiante en mostrador.</bpmn:documentation>
+      <bpmn:incoming>Flow_06</bpmn:incoming>
+      <bpmn:outgoing>Flow_07</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="Task_Recepciona" name="Recepciona, formula preguntas previas y verifica requisitos">
+      <bpmn:documentation>Tiempo efectivo: 8 min de la Secretaría de Decanato. Costo del tiempo: S/ 1.00.</bpmn:documentation>
+      <bpmn:incoming>Flow_07</bpmn:incoming>
+      <bpmn:outgoing>Flow_08</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:exclusiveGateway id="Gateway_Cumple" name="¿El expediente cumple todos los requisitos?">
+      <bpmn:documentation>Compuerta exclusiva: salida Sí continúa el trámite, salida No genera reproceso.</bpmn:documentation>
+      <bpmn:incoming>Flow_08</bpmn:incoming>
+      <bpmn:outgoing>Flow_09</bpmn:outgoing>
+      <bpmn:outgoing>Flow_10</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:userTask id="Task_Observa" name="Observa el expediente y lo devuelve al estudiante">
+      <bpmn:documentation>Incluido en los 8 min del paso de recepción. Cada observación agrega 8 min de Secretaría (S/ 1.00) y un día hábil al trámite.</bpmn:documentation>
+      <bpmn:incoming>Flow_10</bpmn:incoming>
+      <bpmn:outgoing>Flow_11</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:intermediateCatchEvent id="Event_Espera1" name="Siguiente día hábil">
+      <bpmn:documentation>El estudiante corrige la observación y reingresa el expediente al día siguiente hábil.</bpmn:documentation>
+      <bpmn:incoming>Flow_11</bpmn:incoming>
+      <bpmn:outgoing>Flow_12</bpmn:outgoing>
+      <bpmn:timerEventDefinition id="Timer_Event_Espera1">
+        <bpmn:timeDuration xsi:type="bpmn:tFormalExpression">P1D</bpmn:timeDuration>
+      </bpmn:timerEventDefinition>
+    </bpmn:intermediateCatchEvent>
+    <bpmn:manualTask id="Task_Cargo" name="Sella y firma el cargo de recepción">
+      <bpmn:documentation>Incluido en los 8 min de la recepción.</bpmn:documentation>
+      <bpmn:incoming>Flow_09</bpmn:incoming>
+      <bpmn:outgoing>Flow_13</bpmn:outgoing>
+    </bpmn:manualTask>
+    <bpmn:userTask id="Task_Redacta" name="Redacta la carta de presentación oficial">
+      <bpmn:documentation>Tiempo efectivo: 40 min de la Secretaría de Decanato. Costo del tiempo: S/ 4.99. Es la actividad más costosa del proceso.</bpmn:documentation>
+      <bpmn:incoming>Flow_13</bpmn:incoming>
+      <bpmn:outgoing>Flow_14</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="Task_Visa" name="Traslada la carta a Decanato para su visación">
+      <bpmn:documentation>Tiempo efectivo: 10 min de la Secretaría de Decanato, que cubren el traslado, la espera y la firma. Costo del tiempo: S/ 1.25.</bpmn:documentation>
+      <bpmn:incoming>Flow_14</bpmn:incoming>
+      <bpmn:outgoing>Flow_15</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:manualTask id="Task_Firma" name="Firma y sella la carta de presentación">
+      <bpmn:documentation>A cargo de la Decana de la Facultad de Ciencias Administrativas y Humanas. Estimado de 2 a 3 min, contenidos en los 10 min de la Secretaría.</bpmn:documentation>
+      <bpmn:incoming>Flow_15</bpmn:incoming>
+      <bpmn:outgoing>Flow_16</bpmn:outgoing>
+    </bpmn:manualTask>
+    <bpmn:intermediateCatchEvent id="Event_Espera2" name="Siguiente día hábil">
+      <bpmn:documentation>La carta firmada se entrega al día siguiente hábil de presentado el expediente.</bpmn:documentation>
+      <bpmn:incoming>Flow_16</bpmn:incoming>
+      <bpmn:outgoing>Flow_17</bpmn:outgoing>
+      <bpmn:timerEventDefinition id="Timer_Event_Espera2">
+        <bpmn:timeDuration xsi:type="bpmn:tFormalExpression">P1D</bpmn:timeDuration>
+      </bpmn:timerEventDefinition>
+    </bpmn:intermediateCatchEvent>
+    <bpmn:userTask id="Task_Entrega" name="Entrega la carta firmada al estudiante">
+      <bpmn:documentation>Tiempo efectivo: 5 min de la Secretaría de Decanato. Costo del tiempo: S/ 0.62.</bpmn:documentation>
+      <bpmn:incoming>Flow_17</bpmn:incoming>
+      <bpmn:outgoing>Flow_18</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="Task_PresentaEntidad" name="Presenta la carta a la entidad receptora">
+      <bpmn:documentation>Cierra el trámite e inicia las prácticas pre profesionales.</bpmn:documentation>
+      <bpmn:incoming>Flow_18</bpmn:incoming>
+      <bpmn:outgoing>Flow_19</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:endEvent id="EndEvent_Fin" name="Carta presentada: inician las PPP">
+      <bpmn:incoming>Flow_19</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_01" sourceRef="StartEvent_Inicio" targetRef="Task_Plaza" />
+    <bpmn:sequenceFlow id="Flow_02" sourceRef="Task_Plaza" targetRef="Task_Consulta" />
+    <bpmn:sequenceFlow id="Flow_03" name="consulta" sourceRef="Task_Consulta" targetRef="Task_Absuelve" />
+    <bpmn:sequenceFlow id="Flow_04" name="requisitos informados" sourceRef="Task_Absuelve" targetRef="Gateway_Merge" />
+    <bpmn:sequenceFlow id="Flow_05" sourceRef="Gateway_Merge" targetRef="Task_Elabora" />
+    <bpmn:sequenceFlow id="Flow_06" name="expediente" sourceRef="Task_Elabora" targetRef="Task_Presenta" />
+    <bpmn:sequenceFlow id="Flow_07" sourceRef="Task_Presenta" targetRef="Task_Recepciona" />
+    <bpmn:sequenceFlow id="Flow_08" sourceRef="Task_Recepciona" targetRef="Gateway_Cumple" />
+    <bpmn:sequenceFlow id="Flow_09" name="Sí" sourceRef="Gateway_Cumple" targetRef="Task_Cargo" />
+    <bpmn:sequenceFlow id="Flow_10" name="No" sourceRef="Gateway_Cumple" targetRef="Task_Observa" />
+    <bpmn:sequenceFlow id="Flow_11" name="expediente observado" sourceRef="Task_Observa" targetRef="Event_Espera1" />
+    <bpmn:sequenceFlow id="Flow_12" name="corrige y reingresa" sourceRef="Event_Espera1" targetRef="Gateway_Merge" />
+    <bpmn:sequenceFlow id="Flow_13" sourceRef="Task_Cargo" targetRef="Task_Redacta" />
+    <bpmn:sequenceFlow id="Flow_14" sourceRef="Task_Redacta" targetRef="Task_Visa" />
+    <bpmn:sequenceFlow id="Flow_15" name="para firma" sourceRef="Task_Visa" targetRef="Task_Firma" />
+    <bpmn:sequenceFlow id="Flow_16" name="carta firmada" sourceRef="Task_Firma" targetRef="Event_Espera2" />
+    <bpmn:sequenceFlow id="Flow_17" sourceRef="Event_Espera2" targetRef="Task_Entrega" />
+    <bpmn:sequenceFlow id="Flow_18" name="carta de presentación" sourceRef="Task_Entrega" targetRef="Task_PresentaEntidad" />
+    <bpmn:sequenceFlow id="Flow_19" sourceRef="Task_PresentaEntidad" targetRef="EndEvent_Fin" />
+    <bpmn:textAnnotation id="Anno_01"><bpmn:text>Consulta previa: 15 min. Es el paso que evita el reproceso.</bpmn:text></bpmn:textAnnotation>
+    <bpmn:textAnnotation id="Anno_02"><bpmn:text>Recepción, preguntas previas y verificación: 8 min · S/ 1.00</bpmn:text></bpmn:textAnnotation>
+    <bpmn:textAnnotation id="Anno_03"><bpmn:text>Reproceso: +1 día hábil y +8 min de Secretaría por cada observación</bpmn:text></bpmn:textAnnotation>
+    <bpmn:textAnnotation id="Anno_04"><bpmn:text>Redacción de la carta: 40 min · S/ 4.99. Actividad más costosa.</bpmn:text></bpmn:textAnnotation>
+    <bpmn:textAnnotation id="Anno_05"><bpmn:text>Entrega al siguiente día hábil: 5 min · S/ 0.62</bpmn:text></bpmn:textAnnotation>
+    <bpmn:association id="Assoc_Anno_01" sourceRef="Task_Absuelve" targetRef="Anno_01" />
+    <bpmn:association id="Assoc_Anno_02" sourceRef="Task_Recepciona" targetRef="Anno_02" />
+    <bpmn:association id="Assoc_Anno_03" sourceRef="Task_Observa" targetRef="Anno_03" />
+    <bpmn:association id="Assoc_Anno_04" sourceRef="Task_Redacta" targetRef="Anno_04" />
+    <bpmn:association id="Assoc_Anno_05" sourceRef="Task_Entrega" targetRef="Anno_05" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_1">
+      <bpmndi:BPMNShape id="Participant_FCAH_di" bpmnElement="Participant_FCAH" isHorizontal="true"><dc:Bounds x="160" y="200" width="1880" height="700" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_Estudiante_di" bpmnElement="Lane_Estudiante" isHorizontal="true"><dc:Bounds x="190" y="200" width="1850" height="170" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_Coordinacion_di" bpmnElement="Lane_Coordinacion" isHorizontal="true"><dc:Bounds x="190" y="370" width="1850" height="140" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_Secretaria_di" bpmnElement="Lane_Secretaria" isHorizontal="true"><dc:Bounds x="190" y="510" width="1850" height="260" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_Decanato_di" bpmnElement="Lane_Decanato" isHorizontal="true"><dc:Bounds x="190" y="770" width="1850" height="130" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Participant_Entidad_di" bpmnElement="Participant_Entidad" isHorizontal="true"><dc:Bounds x="160" y="40" width="1880" height="100" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="StartEvent_Inicio_di" bpmnElement="StartEvent_Inicio"><dc:Bounds x="240" y="267" width="36" height="36" /><bpmndi:BPMNLabel><dc:Bounds x="193" y="309" width="130" height="27" /></bpmndi:BPMNLabel></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_Plaza_di" bpmnElement="Task_Plaza"><dc:Bounds x="320" y="245" width="100" height="80" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_Consulta_di" bpmnElement="Task_Consulta"><dc:Bounds x="480" y="245" width="100" height="80" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_Absuelve_di" bpmnElement="Task_Absuelve"><dc:Bounds x="480" y="400" width="100" height="80" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_Merge_di" bpmnElement="Gateway_Merge" isMarkerVisible="true"><dc:Bounds x="680" y="260" width="50" height="50" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_Elabora_di" bpmnElement="Task_Elabora"><dc:Bounds x="780" y="245" width="100" height="80" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_Presenta_di" bpmnElement="Task_Presenta"><dc:Bounds x="940" y="245" width="100" height="80" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_Recepciona_di" bpmnElement="Task_Recepciona"><dc:Bounds x="940" y="530" width="100" height="80" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_Cumple_di" bpmnElement="Gateway_Cumple" isMarkerVisible="true"><dc:Bounds x="1100" y="545" width="50" height="50" /><bpmndi:BPMNLabel><dc:Bounds x="1060" y="514" width="130" height="27" /></bpmndi:BPMNLabel></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_Observa_di" bpmnElement="Task_Observa"><dc:Bounds x="1075" y="650" width="100" height="80" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_Espera1_di" bpmnElement="Event_Espera1"><dc:Bounds x="812" y="330" width="36" height="36" /><bpmndi:BPMNLabel><dc:Bounds x="765" y="372" width="130" height="27" /></bpmndi:BPMNLabel></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_Cargo_di" bpmnElement="Task_Cargo"><dc:Bounds x="1210" y="530" width="100" height="80" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_Redacta_di" bpmnElement="Task_Redacta"><dc:Bounds x="1370" y="530" width="100" height="80" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_Visa_di" bpmnElement="Task_Visa"><dc:Bounds x="1530" y="530" width="100" height="80" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_Firma_di" bpmnElement="Task_Firma"><dc:Bounds x="1530" y="795" width="100" height="80" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_Espera2_di" bpmnElement="Event_Espera2"><dc:Bounds x="1700" y="552" width="36" height="36" /><bpmndi:BPMNLabel><dc:Bounds x="1653" y="594" width="130" height="27" /></bpmndi:BPMNLabel></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_Entrega_di" bpmnElement="Task_Entrega"><dc:Bounds x="1790" y="530" width="100" height="80" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_PresentaEntidad_di" bpmnElement="Task_PresentaEntidad"><dc:Bounds x="1790" y="245" width="100" height="80" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_Fin_di" bpmnElement="EndEvent_Fin"><dc:Bounds x="1950" y="267" width="36" height="36" /><bpmndi:BPMNLabel><dc:Bounds x="1903" y="309" width="130" height="27" /></bpmndi:BPMNLabel></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Anno_01_di" bpmnElement="Anno_01"><dc:Bounds x="480" y="950" width="200" height="64" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Anno_02_di" bpmnElement="Anno_02"><dc:Bounds x="830" y="950" width="200" height="64" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Anno_03_di" bpmnElement="Anno_03"><dc:Bounds x="1075" y="950" width="210" height="64" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Anno_04_di" bpmnElement="Anno_04"><dc:Bounds x="1370" y="950" width="200" height="64" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Anno_05_di" bpmnElement="Anno_05"><dc:Bounds x="1700" y="950" width="210" height="64" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_01_di" bpmnElement="Flow_01"><di:waypoint x="276" y="285" /><di:waypoint x="320" y="285" /></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_02_di" bpmnElement="Flow_02"><di:waypoint x="420" y="285" /><di:waypoint x="480" y="285" /></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_03_di" bpmnElement="Flow_03"><di:waypoint x="530" y="325" /><di:waypoint x="530" y="400" /><bpmndi:BPMNLabel><dc:Bounds x="485" y="376" width="90" height="20" /></bpmndi:BPMNLabel></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_04_di" bpmnElement="Flow_04"><di:waypoint x="580" y="440" /><di:waypoint x="705" y="440" /><di:waypoint x="705" y="310" /><bpmndi:BPMNLabel><dc:Bounds x="660" y="416" width="90" height="20" /></bpmndi:BPMNLabel></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_05_di" bpmnElement="Flow_05"><di:waypoint x="730" y="285" /><di:waypoint x="780" y="285" /></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_06_di" bpmnElement="Flow_06"><di:waypoint x="880" y="285" /><di:waypoint x="940" y="285" /><bpmndi:BPMNLabel><dc:Bounds x="895" y="261" width="90" height="20" /></bpmndi:BPMNLabel></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_07_di" bpmnElement="Flow_07"><di:waypoint x="990" y="325" /><di:waypoint x="990" y="530" /></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_08_di" bpmnElement="Flow_08"><di:waypoint x="1040" y="570" /><di:waypoint x="1100" y="570" /></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_09_di" bpmnElement="Flow_09"><di:waypoint x="1150" y="570" /><di:waypoint x="1210" y="570" /><bpmndi:BPMNLabel><dc:Bounds x="1165" y="546" width="90" height="20" /></bpmndi:BPMNLabel></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_10_di" bpmnElement="Flow_10"><di:waypoint x="1125" y="595" /><di:waypoint x="1125" y="650" /><bpmndi:BPMNLabel><dc:Bounds x="1080" y="626" width="90" height="20" /></bpmndi:BPMNLabel></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_11_di" bpmnElement="Flow_11"><di:waypoint x="1075" y="690" /><di:waypoint x="830" y="690" /><di:waypoint x="830" y="366" /><bpmndi:BPMNLabel><dc:Bounds x="785" y="666" width="90" height="20" /></bpmndi:BPMNLabel></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_12_di" bpmnElement="Flow_12"><di:waypoint x="812" y="348" /><di:waypoint x="650" y="348" /><di:waypoint x="650" y="285" /><di:waypoint x="680" y="285" /><bpmndi:BPMNLabel><dc:Bounds x="605" y="261" width="90" height="20" /></bpmndi:BPMNLabel></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_13_di" bpmnElement="Flow_13"><di:waypoint x="1310" y="570" /><di:waypoint x="1370" y="570" /></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_14_di" bpmnElement="Flow_14"><di:waypoint x="1470" y="570" /><di:waypoint x="1530" y="570" /></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_15_di" bpmnElement="Flow_15"><di:waypoint x="1580" y="610" /><di:waypoint x="1580" y="795" /><bpmndi:BPMNLabel><dc:Bounds x="1535" y="771" width="90" height="20" /></bpmndi:BPMNLabel></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_16_di" bpmnElement="Flow_16"><di:waypoint x="1630" y="835" /><di:waypoint x="1718" y="835" /><di:waypoint x="1718" y="588" /><bpmndi:BPMNLabel><dc:Bounds x="1673" y="811" width="90" height="20" /></bpmndi:BPMNLabel></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_17_di" bpmnElement="Flow_17"><di:waypoint x="1736" y="570" /><di:waypoint x="1790" y="570" /></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_18_di" bpmnElement="Flow_18"><di:waypoint x="1840" y="530" /><di:waypoint x="1840" y="325" /><bpmndi:BPMNLabel><dc:Bounds x="1795" y="301" width="90" height="20" /></bpmndi:BPMNLabel></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_19_di" bpmnElement="Flow_19"><di:waypoint x="1890" y="285" /><di:waypoint x="1950" y="285" /></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="MsgFlow_01_di" bpmnElement="MsgFlow_01"><di:waypoint x="370" y="140" /><di:waypoint x="370" y="245" /><bpmndi:BPMNLabel><dc:Bounds x="325" y="221" width="90" height="20" /></bpmndi:BPMNLabel></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="MsgFlow_02_di" bpmnElement="MsgFlow_02"><di:waypoint x="1840" y="245" /><di:waypoint x="1840" y="140" /><bpmndi:BPMNLabel><dc:Bounds x="1795" y="116" width="90" height="20" /></bpmndi:BPMNLabel></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Assoc_Anno_01_di" bpmnElement="Assoc_Anno_01"><di:waypoint x="530" y="480" /><di:waypoint x="530" y="950" /></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Assoc_Anno_02_di" bpmnElement="Assoc_Anno_02"><di:waypoint x="990" y="610" /><di:waypoint x="990" y="950" /></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Assoc_Anno_03_di" bpmnElement="Assoc_Anno_03"><di:waypoint x="1125" y="730" /><di:waypoint x="1125" y="950" /></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Assoc_Anno_04_di" bpmnElement="Assoc_Anno_04"><di:waypoint x="1420" y="610" /><di:waypoint x="1420" y="950" /></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Assoc_Anno_05_di" bpmnElement="Assoc_Anno_05"><di:waypoint x="1840" y="610" /><di:waypoint x="1840" y="950" /></bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
