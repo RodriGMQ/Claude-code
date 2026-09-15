@@ -1,0 +1,4 @@
+__pycache__/
+*.pyc
+*.transcript.json
+*_clips/

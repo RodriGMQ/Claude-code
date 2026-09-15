@@ -11,6 +11,7 @@ Administrativas y Humanas, Universidad Nacional del Altiplano — Puno.
 | `flujograma-carta-presentacion.html` | Flujograma funcional por responsable (simbología ANSI), fichas de tiempos, tiempo por involucrado, costeo del tiempo de Secretaría y supuestos. |
 | `carta-presentacion-ppp.bpmn` | Modelo BPMN 2.0 del mismo proceso, con Diagram Interchange. Se abre en Camunda Modeler, bpmn.io, draw.io o Signavio. |
 | `flujograma.svg.frag` | Fragmento SVG del flujograma, reutilizable en otros documentos. |
+| `clips/clipper.py` | Herramienta aparte: corta un video largo en clips verticales para TikTok, con Whisper y subtítulo quemado. Ver `clips/README.md`. |
 
 ## Cifras del proceso
 

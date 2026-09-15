@@ -1,0 +1,2 @@
+# Transcripcion con Whisper en CPU. Instala tambien ffmpeg aparte (no es un paquete pip).
+faster-whisper>=1.0
