@@ -191,6 +191,7 @@ form[data-type="egreso"] .primary{background:var(--exp-ink);box-shadow:0 18px 30
       <div class="top">
         <div class="avatar" id="av"></div>
         <div class="grow"><small>Hola, bienvenido</small><h1 id="greet">Buenos días</h1></div>
+        <button class="btn ghost" id="installBtn" hidden>Instalar app</button>
       </div>
       <div class="bal" aria-label="Balance">
         <div class="mnav" data-ctx="home"><button class="mprev" aria-label="Mes anterior">‹</button><div class="mlabel"></div><button class="mnext" aria-label="Mes siguiente">›</button></div>
@@ -291,6 +292,7 @@ form[data-type="egreso"] .primary{background:var(--exp-ink);box-shadow:0 18px 30
 </div>
 <div id="toastHost" aria-live="polite"></div>
 
+<script type="application/json" id="claude-artifacts-manifest">{"permissions":[]}</script>
 <script>
 const $=id=>document.getElementById(id);
 const CATS={
@@ -629,6 +631,30 @@ $('form').addEventListener('submit',async ev=>{
   }catch(x){err.textContent='No se pudo guardar. Intenta de nuevo.'}
   $('save').disabled=false;
 });
+
+/* App de escritorio: ícono propio y botón para instalar desde la app de Claude */
+function drawIcon(){
+  const c=document.createElement('canvas');c.width=c.height=256;const g=c.getContext('2d');
+  const rr=(x,y,w,h,r)=>{g.beginPath();g.moveTo(x+r,y);g.arcTo(x+w,y,x+w,y+h,r);g.arcTo(x+w,y+h,x,y+h,r);g.arcTo(x,y+h,x,y,r);g.arcTo(x,y,x+w,y,r);g.closePath()};
+  rr(0,0,256,256,56);g.fillStyle='#6a4ce2';g.fill();
+  g.fillStyle='#ffffff';
+  [[60,110,36,80],[110,66,36,124],[160,92,36,98]].forEach(([x,y,w,h])=>{rr(x,y,w,h,12);g.fill()});
+  return c.toDataURL('image/png');
+}
+claude.use('desktop').then(async d=>{
+  if(!d)return;
+  try{
+    if(d.app&&d.app.dock)d.app.dock.setIcon(drawIcon()).catch(()=>{});
+    const st=d.install?await d.install.state():'unavailable';
+    if(st==='available'){
+      const b=$('installBtn');b.hidden=false;
+      b.onclick=async()=>{
+        try{const r=await d.install.request();if(r==='failed')toast('No se pudo instalar. Intenta desde el menú de la app de Claude.')}
+        catch(e){toast('No se pudo iniciar la instalación.')}
+      };
+    }
+  }catch(e){}
+}).catch(()=>{});
 
 $('date').value=today();syncDateChips();
 setType('ingreso');render();go('inicio');
